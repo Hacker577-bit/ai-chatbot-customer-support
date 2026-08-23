@@ -1,13 +1,1 @@
-﻿{
-  "name": "nova-ai-customer-support",
-  "version": "1.0.0",
-  "description": "AI-powered customer support chatbot with NLU, intent recognition, voice input, and multi-language support. Powered by Groq Llama 3.3 70B.",
-  "private": true,
-  "engines": {
-    "node": ">=18"
-  },
-  "scripts": {
-    "dev": "vercel dev",
-    "deploy": "vercel --prod"
-  }
-}
+{"name":"nova-ai-customer-support","version":"1.0.0","description":"AI-powered customer support chatbot with Groq Llama 3.3 70B","private":true,"engines":{"node":">=18"}}
