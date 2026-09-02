@@ -1,9 +1,8 @@
-﻿// Groq API key is stored as a Vercel environment variable: GROQ_API_KEY
-// Set it in Vercel dashboard: Settings > Environment Variables
+// Groq API key stored as Vercel environment variable: GROQ_API_KEY
 const GROQ_API_KEY = process.env.GROQ_API_KEY;
 const GROQ_BASE = 'https://api.groq.com/openai/v1/chat/completions';
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
