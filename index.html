@@ -905,7 +905,14 @@ function sysPrompt(){
 RESPOND EXCLUSIVELY IN ${LANGS[lang].name}.
 Be concise, professional, and clear.
 Core knowledge: order tracking, 30-day returns, billing, accounts, basic tech support.
-Never fabricate data like order IDs or ETAs.`;
+Never fabricate data like order IDs or ETAs.
+
+CRITICAL INSTRUCTION: You must ALWAYS respond with a valid JSON object in this exact format:
+{
+  "reply": "Your actual response message here (use markdown)",
+  "followups": ["Suggested question 1", "Suggested question 2", "Suggested question 3"]
+}
+Provide exactly 2-3 highly relevant follow-up questions the user might want to ask next based on your reply. Do NOT output any text outside of the JSON object.`;
 }
 
 function newChat(){
@@ -917,7 +924,7 @@ function loadConv(id){
   const c=convs.find(x=>x.id===id);if(!c)return;
   currentId=id;apiHistory=c.api||[];displayMsgs=c.display||[];confs=c.confs||[];faqHits=c.faqHits||0;msgTotal=c.msgTotal||0;
   clearMsgArea();hideWelcome();
-  displayMsgs.forEach(m=>appendBubble(m.role,m.text,m.intent,m.conf,false));
+  displayMsgs.forEach(m=>appendBubble(m.role,m.text,m.intent,m.conf,false,m.followups||[]));
   updateStats();renderHist();scrollBot();
 }
 
@@ -948,13 +955,14 @@ function md(t){
     .replace(/\n/g,'<br>');
 }
 
-function appendBubble(role,text,intent,conf,animate=true){
+function appendBubble(role,text,intent,conf,animate=true,followups=[]){
   hideWelcome();
   const id='m'+(++msgSeq);msgTexts.set(id,text);
   const intCfg=INTENTS[intent]||{color:'var(--text-muted)',icon:'&#128172;'};
   const pct=Math.round((conf||0.5)*100);
   
   let metaHtml='';
+  let followupsHtml='';
   if(role==='assistant'){
     metaHtml=`<div class="msg-meta">
       <span class="intent-badge" style="color:${intCfg.color};border-color:${intCfg.color}40">
@@ -966,6 +974,11 @@ function appendBubble(role,text,intent,conf,animate=true){
         <button class="act-btn" onclick="copyMsg('${id}')">&#128203; Copy</button>
       </div>
     </div>`;
+    
+    if(followups&&followups.length>0){
+      const chips=followups.map(f=>`<div class="chip" style="font-size:0.75rem;padding:0.35rem 0.75rem;margin-top:0.5rem;" onclick="quickSend('${esc(f)}')">${esc(f)}</div>`).join('');
+      followupsHtml=`<div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.5rem;">${chips}</div>`;
+    }
   }
   
   const row=document.createElement('div');
@@ -977,6 +990,7 @@ function appendBubble(role,text,intent,conf,animate=true){
     <div class="msg-body">
       <div class="msg-bubble ${role}">${md(text)}</div>
       ${metaHtml}
+      ${followupsHtml}
     </div>`;
     
   msgsEl().appendChild(row);
@@ -1032,25 +1046,35 @@ async function sendMsg(override){
   apiHistory.push({role:'user',content:text});
   
   const faqRes=searchFAQ(text);
-  let reply,replyConf;
+  let reply,replyConf,followups=[];
   showTyping();
   
   try{
     if(faqRes&&faqRes.score>0.55){
       await new Promise(r=>setTimeout(r,400));
       reply=faqRes.entry.a;replyConf=Math.min(0.98,faqRes.score+0.28);faqHits++;
+      followups = ["Can I talk to a human?", "I have another question"];
     }else{
       const messages=[{role:'system',content:sysPrompt()},...apiHistory.slice(-12)];
       const res=await fetch(API_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages,model})});
       if(!res.ok)throw new Error(`API Error: ${res.status}`);
       const data=await res.json();
       if(data.error)throw new Error(data.error.message||'Unknown API Error');
-      reply=data.choices?.[0]?.message?.content||'Error processing response.';
+      
+      const rawText=data.choices?.[0]?.message?.content||'{}';
+      try {
+        const parsed = JSON.parse(rawText.replace(/```json/g,'').replace(/```/g,'').trim());
+        reply = parsed.reply || rawText;
+        followups = parsed.followups || [];
+      } catch(e) {
+        reply = rawText; // fallback if LLM doesn't output JSON
+        followups = [];
+      }
       replyConf=Math.min(0.95,confidence+0.18+Math.random()*0.09);
     }
     hideTyping();
-    appendBubble('assistant',reply,intent,replyConf);
-    displayMsgs.push({role:'assistant',text:reply,intent,conf:replyConf});
+    appendBubble('assistant',reply,intent,replyConf,true,followups);
+    displayMsgs.push({role:'assistant',text:reply,intent,conf:replyConf,followups});
     apiHistory.push({role:'assistant',content:reply});
     saveConv();
   }catch(err){
@@ -1131,3 +1155,4 @@ document.addEventListener('DOMContentLoaded',init);
 </script>
 </body>
 </html>
+
