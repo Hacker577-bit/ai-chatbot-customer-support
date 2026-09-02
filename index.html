@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -901,11 +901,11 @@ let isRecording=false,recog=null,msgSeq=0;
 const msgTexts=new Map();
 
 function sysPrompt(){
-  return You are , a customer support AI for NovaAI.
-RESPOND EXCLUSIVELY IN .
+  return `You are ${botName}, a customer support AI for NovaAI.
+RESPOND EXCLUSIVELY IN ${LANGS[lang].name}.
 Be concise, professional, and clear.
 Core knowledge: order tracking, 30-day returns, billing, accounts, basic tech support.
-Never fabricate data like order IDs or ETAs.;
+Never fabricate data like order IDs or ETAs.`;
 }
 
 function newChat(){
@@ -943,8 +943,8 @@ function scrollBot(){const m=msgsEl();m.scrollTop=m.scrollHeight;}
 
 function md(t){
   return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-    .replace(/\*\*(.*?)\*\*/g,'<strong></strong>').replace(/\*(.*?)\*/g,'<em></em>')
-    .replace(/([^]+)/g,'<code style="background:var(--surface-hover);padding:.1em .3em;border-radius:3px;font-family:monospace;font-size:0.9em"></code>')
+    .replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\*(.*?)\*/g,'<em>$1</em>')
+    .replace(/`([^`]+)`/g,'<code style="background:var(--surface-hover);padding:.1em .3em;border-radius:3px;font-family:monospace;font-size:0.9em">$1</code>')
     .replace(/\n/g,'<br>');
 }
 
@@ -956,28 +956,28 @@ function appendBubble(role,text,intent,conf,animate=true){
   
   let metaHtml='';
   if(role==='assistant'){
-    metaHtml=<div class="msg-meta">
-      <span class="intent-badge" style="color:;border-color:40">
-         
+    metaHtml=`<div class="msg-meta">
+      <span class="intent-badge" style="color:${intCfg.color};border-color:${intCfg.color}40">
+        ${intCfg.icon} ${intent||'general'}
       </span>
-      <span class="conf-chip">&#9889; %</span>
+      <span class="conf-chip">&#9889; ${pct}%</span>
       <div class="msg-acts">
-        <button class="act-btn" id="tts-" onclick="speakMsg('')">&#128266; TTS</button>
-        <button class="act-btn" onclick="copyMsg('')">&#128203; Copy</button>
+        <button class="act-btn" id="tts-${id}" onclick="speakMsg('${id}')">&#128266; TTS</button>
+        <button class="act-btn" onclick="copyMsg('${id}')">&#128203; Copy</button>
       </div>
-    </div>;
+    </div>`;
   }
   
   const row=document.createElement('div');
   row.className='msg-row '+role;
   if(!animate)row.style.animation='none';
   
-  row.innerHTML=
-    <div class="msg-av "></div>
+  row.innerHTML=`
+    <div class="msg-av ${role}">${role==='assistant'?'&#129302;':'&#128100;'}</div>
     <div class="msg-body">
-      <div class="msg-bubble "></div>
-      
-    </div>;
+      <div class="msg-bubble ${role}">${md(text)}</div>
+      ${metaHtml}
+    </div>`;
     
   msgsEl().appendChild(row);
   if(role==='assistant'){msgTotal++;confs.push(conf||0.5);updateStats();}
@@ -986,8 +986,8 @@ function appendBubble(role,text,intent,conf,animate=true){
 
 function showTyping(){
   const el=document.createElement('div');el.className='typing';el.id='typing';
-  el.innerHTML=<div class="msg-av bot">&#129302;</div>
-    <div class="typing-dots"><div class="td"></div><div class="td"></div><div class="td"></div></div>;
+  el.innerHTML=`<div class="msg-av bot">&#129302;</div>
+    <div class="typing-dots"><div class="td"></div><div class="td"></div><div class="td"></div></div>`;
   msgsEl().appendChild(el);scrollBot();
 }
 function hideTyping(){document.getElementById('typing')?.remove();}
@@ -1004,7 +1004,7 @@ function renderHist(){
   convs.forEach(c=>{
     const div=document.createElement('div');div.className='hist-item '+(c.id===currentId?'active':'');
     div.onclick=()=>loadConv(c.id);
-    div.innerHTML=<div class="hist-item-title"></div><div class="hist-item-time"></div>;
+    div.innerHTML=`<div class="hist-item-title">${esc(c.title)}</div><div class="hist-item-time">${timeAgo(c.ts)}</div>`;
     list.appendChild(div);
   });
 }
@@ -1042,7 +1042,7 @@ async function sendMsg(override){
     }else{
       const messages=[{role:'system',content:sysPrompt()},...apiHistory.slice(-12)];
       const res=await fetch(API_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages,model})});
-      if(!res.ok)throw new Error(API Error: );
+      if(!res.ok)throw new Error(`API Error: ${res.status}`);
       const data=await res.json();
       if(data.error)throw new Error(data.error.message||'Unknown API Error');
       reply=data.choices?.[0]?.message?.content||'Error processing response.';
@@ -1115,7 +1115,7 @@ function saveSettings(){
 function populateVoices(){
   const sel=document.getElementById('voice-sel');const voices=window.speechSynthesis.getVoices();
   if(!voices.length){sel.innerHTML='<option>Loading...</option>';return;}
-  sel.innerHTML=voices.map(v=><option value=""> ()</option>).join('');
+  sel.innerHTML=voices.map(v=>`<option value="${esc(v.name)}">${esc(v.name)} (${v.lang})</option>`).join('');
 }
 if(window.speechSynthesis)window.speechSynthesis.onvoiceschanged=populateVoices;
 function setLang(code){lang=code;toast('Language: '+LANGS[code].name);}
