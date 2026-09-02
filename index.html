@@ -743,8 +743,8 @@
     <div class="fg">
       <label class="flabel">AI Model</label>
       <select id="model-sel" class="fselect">
-        <option value="llama-3.3-70b-versatile">Llama 3.3 70B - Best Quality</option>
-        <option value="llama3-8b-8192">Llama 3 8B - Fastest</option>
+        <option value="qwen/qwen3.8-27b">Qwen 3.8 27B - Best Quality</option>
+        <option value="qwen/qwen3.6-27b">Qwen 3.6 27B - Fastest</option>
         <option value="mixtral-8x7b-32768">Mixtral 8x7B - Balanced</option>
         <option value="gemma2-9b-it">Gemma 2 9B - Lightweight</option>
       </select>
@@ -784,7 +784,7 @@
         <button class="icon-btn" onclick="toggleSidebar()" id="sidebar-toggle">&#9776;</button>
         <div>
           <div style="display:flex;align-items:center;gap:.5rem"><div class="online-dot"></div><div class="topbar-title" id="chat-title">NovaAI Support</div></div>
-          <div class="topbar-sub">Groq &#xB7; Llama 3.3 70B</div>
+          <div class="topbar-sub">Groq &#xB7; Qwen 3.8 27B</div>
         </div>
       </div>
       <div class="topbar-r">
@@ -895,7 +895,7 @@ function searchFAQ(text){
 }
 
 let convs=JSON.parse(localStorage.getItem('nova_convs')||'[]');
-let currentId=null,apiHistory=[],displayMsgs=[],lang='en',model='llama-3.3-70b-versatile';
+let currentId=null,apiHistory=[],displayMsgs=[],lang='en',model='qwen/qwen3.8-27b';
 let botName='NovaAI',ttsSpeed=1.0,confs=[],faqHits=0,msgTotal=0;
 let isRecording=false,recog=null,msgSeq=0;
 const msgTexts=new Map();
