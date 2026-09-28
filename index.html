@@ -625,6 +625,100 @@ function speakLast() {
   speakMsg(lastAssistantMsgId);
 }
 
+// Intent-keyed follow-up chips — each intent has 6+ options; 3 are picked randomly to avoid repetition
+const INTENT_FOLLOWUPS = {
+  shipping: [
+    'How long does shipping take?',
+    'Can I change my delivery address?',
+    'What happens if my package is lost?',
+    'Do you offer express delivery?',
+    'Can I track multiple orders at once?',
+    'What carriers do you use for shipping?',
+  ],
+  refund: [
+    'How long does a refund take to process?',
+    'Can I exchange instead of returning?',
+    'Do I need to pay for return shipping?',
+    'What items are not eligible for return?',
+    'Can I return a gift I received?',
+    'How do I get a prepaid return label?',
+  ],
+  billing: [
+    'Why was I charged twice?',
+    'Can I get an invoice for my order?',
+    'How do I update my payment method?',
+    'Is my payment information secure?',
+    'Do you offer installment payments?',
+    'How do I apply a promo code?',
+  ],
+  account: [
+    'How do I change my email address?',
+    'Can I have multiple accounts?',
+    'How do I enable two-factor authentication?',
+    'How do I delete my account?',
+    'Why is my account locked?',
+    'How do I update my profile picture?',
+  ],
+  technical: [
+    'How do I clear my browser cache?',
+    'Which browsers are supported?',
+    'How do I report a bug?',
+    'Is there a mobile app available?',
+    'How do I update the app?',
+    'Can I use the service offline?',
+  ],
+  escalation: [
+    'What are your support hours?',
+    'How long does a support ticket take?',
+    'Can I get a callback instead of chat?',
+    'How do I file a formal complaint?',
+    'Is there a priority support option?',
+    'Can I email your support team?',
+  ],
+  greeting: [
+    'What can you help me with?',
+    'How do I track my order?',
+    'What is your return policy?',
+    'How do I contact support?',
+    'Do you have a loyalty rewards program?',
+    'What are your business hours?',
+  ],
+  farewell: [
+    'How do I leave a review?',
+    'Can I save this conversation?',
+    'How do I contact you again?',
+    'Is there anything else I should know?',
+    'How do I subscribe to your newsletter?',
+    'Where can I find your help center?',
+  ],
+  product: [
+    'How do I get started with the API?',
+    'Is there a free trial available?',
+    'Where is the documentation?',
+    'Do you offer enterprise pricing?',
+    'How do I integrate with other tools?',
+    'What are the system requirements?',
+  ],
+  general: [
+    'What is your return policy?',
+    'How do I track my order?',
+    'How do I contact a human agent?',
+    'What payment methods do you accept?',
+    'How long does shipping take?',
+    'How do I reset my password?',
+  ],
+};
+
+function pickFollowups(intent) {
+  const pool = INTENT_FOLLOWUPS[intent] || INTENT_FOLLOWUPS.general;
+  // pick 3 without repetition from the pool, avoiding ones already shown in this convo
+  const used = new Set(displayMsgs.filter(m => m.followups).flatMap(m => m.followups));
+  const fresh = pool.filter(q => !used.has(q));
+  const source = fresh.length >= 3 ? fresh : pool; // fallback to full pool if all used
+  const shuffled = [...source].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, 3);
+}
+
 function classifyIntent(text) {
   const lower = text.toLowerCase(); let best = 'general', bestScore = 0;
   for (const [name,cfg] of Object.entries(INTENTS)) {
@@ -647,9 +741,17 @@ function searchFAQ(text) {
 }
 
 function sysPrompt() {
+  const usedFollowups = displayMsgs
+    .filter(m => m.role === 'assistant' && m.followups)
+    .flatMap(m => m.followups).slice(-9).join(', ');
   return `You are ${botName}, a customer support AI. Respond in ${LANGS[lang].name}. Be concise and professional.
 ALWAYS respond with valid JSON only:
 {"reply":"your markdown response","followups":["q1","q2","q3"]}
+Rules for followups:
+- Provide EXACTLY 3 follow-up questions the user is likely to ask NEXT based on your reply.
+- Each must be DIFFERENT from any previous followup in this conversation.
+- Previously used followups (AVOID repeating these): ${usedFollowups || 'none'}.
+- Make them specific and useful — not generic like "tell me more" or "I have a question".
 Do NOT output any text outside the JSON.`;
 }
 
@@ -876,7 +978,7 @@ async function sendMsg(override, isRegen=false) {
       await new Promise(r => setTimeout(r, 500));
       reply = faqRes.entry.a;
       replyConf = Math.min(0.98, faqRes.score + 0.28);
-      followups = ['Can I talk to a human agent?', 'I have another question', 'Tell me more'];
+      followups = pickFollowups(intent);
     } else {
       const messages = [{role:'system', content:sysPrompt()}, ...apiHistory.slice(-14)];
       const res = await fetch(API_ENDPOINT, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({messages, model})});
