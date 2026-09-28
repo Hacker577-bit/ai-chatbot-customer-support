@@ -727,15 +727,16 @@ function classifyIntent(text) {
   return {intent: best, confidence: conf};
 }
 function searchFAQ(text) {
-  const words = text.toLowerCase().split(/\W+/).filter(w => w.length > 3);
+  const words = text.toLowerCase().split(/\W+/).filter(w => w.length > 2);
+  if (!words.length) return null;
   let best = null, bestScore = 0;
   for (const entry of FAQ) {
-    const qw = entry.q.toLowerCase().split(/\W+/);
-    const overlap = words.filter(w => qw.some(q => q.includes(w)||w.includes(q))).length;
-    const score = overlap / Math.max(words.length, 1);
+    const qw = entry.q.toLowerCase().split(/\W+/).filter(w => w.length > 2);
+    const overlap = words.filter(w => qw.some(q => q === w || q.startsWith(w) || w.startsWith(q))).length;
+    const score = overlap / Math.max(words.length, qw.length);
     if (score > bestScore) { bestScore = score; best = entry; }
   }
-  return bestScore >= 0.35 ? {entry: best, score: bestScore} : null;
+  return bestScore >= 0.4 ? {entry: best, score: bestScore} : null;
 }
 
 function sysPrompt() {
