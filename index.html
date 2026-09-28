@@ -14,7 +14,7 @@
     /* ── Sidebar ── */
     .sidebar { width: 240px; display: flex; flex-direction: column; color: #fff; flex-shrink: 0; }
     .logo { font-size: 1.4rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; padding-left: 0.5rem; margin-top: 0.5rem; }
-    .logo-dots { display: flex; gap: 3px; flex-wrap: wrap; width: 18px; }
+    .logo-dots { display: flex; gap: 3px; }
     .logo-dots span { width: 7px; height: 7px; border-radius: 50%; }
     .d-g { background: #10b981; } .d-y { background: #f59e0b; } .d-r { background: #ef4444; }
 
@@ -47,13 +47,12 @@
 
     .search-box { margin: 0 1.5rem 1rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; display: flex; align-items: center; padding: 0.6rem 1rem; flex-shrink: 0; }
     .search-box input { border: none; background: transparent; outline: none; flex: 1; font-size: 0.9rem; font-family: inherit; }
-    .search-box svg { color: #94a3b8; width: 18px; flex-shrink: 0; }
 
     .hist-list { flex: 1; overflow-y: auto; padding: 0 1.5rem 5rem; display: flex; flex-direction: column; }
     .h-item { border-top: 1px solid #f1f5f9; padding: 1.25rem 0; cursor: pointer; transition: opacity 0.15s; }
     .h-item:first-child { border-top: none; }
     .h-item:hover { opacity: 0.75; }
-    .h-item.active-conv .h-title { color: #fca5a5; }
+    .h-item.active-conv .h-title { color: #e8697a; }
     .h-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem; }
     .h-title { font-weight: 600; font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px; }
     .h-time { font-size: 0.75rem; color: #94a3b8; flex-shrink: 0; }
@@ -65,7 +64,6 @@
     /* ── Main Panel ── */
     .main-panel { flex: 1; background: #fff; border-radius: 24px; display: flex; flex-direction: column; overflow: hidden; min-width: 0; }
     .main-header { padding: 1.25rem 2rem; font-size: 1.15rem; font-weight: 700; border-bottom: 1px solid #f1f5f9; flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; }
-    .main-header-title { truncate: ellipsis; }
     .lang-sel { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #475569; font-size: 0.8rem; padding: 0.35rem 0.6rem; cursor: pointer; font-family: inherit; outline: none; }
 
     .chat-area { flex: 1; overflow-y: auto; padding: 2rem; display: flex; flex-direction: column; gap: 1.75rem; }
@@ -92,7 +90,8 @@
     .mt-left { display: flex; align-items: center; gap: 0.65rem; }
     .m-av { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; }
     .m-time { font-size: 0.72rem; color: #94a3b8; font-weight: 500; }
-    .m-icons { display: flex; gap: 0.4rem; color: #94a3b8; cursor: pointer; }
+    .m-icons { display: flex; gap: 0.5rem; color: #94a3b8; cursor: pointer; align-items: center; }
+    .m-icons svg { transition: color 0.15s; }
     .m-icons svg:hover { color: #475569; }
 
     .msg-acts { display: flex; gap: 0.4rem; margin-top: 0.4rem; flex-wrap: wrap; }
@@ -100,7 +99,7 @@
     .m-act-btn:hover { background: #fca5a5; border-color: #fca5a5; color: #0f182b; }
     .m-act-btn.liked { background: #fca5a5; border-color: #fca5a5; color: #0f182b; }
 
-    /* Follow-up chips after bot message */
+    /* Follow-up chips */
     .followup-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }
     .fu-chip { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 20px; padding: 0.4rem 0.9rem; font-size: 0.8rem; color: #475569; cursor: pointer; transition: all 0.15s; font-weight: 500; }
     .fu-chip:hover { background: #fca5a5; border-color: #fca5a5; color: #0f182b; }
@@ -116,7 +115,7 @@
     /* Input section */
     .input-sec { padding: 0 1.25rem 1.25rem; flex-shrink: 0; }
     .tb-row { display: flex; gap: 0.4rem; margin-bottom: 0.45rem; align-items: center; flex-wrap: nowrap; }
-    .tb-btn { height: 30px; background: #fff; border: 1px solid #e2e8f0; border-radius: 7px; display: flex; align-items: center; justify-content: center; color: #475569; cursor: pointer; font-size: 0.7rem; font-weight: 600; box-shadow: 0 1px 2px rgba(0,0,0,0.03); transition: all 0.15s; padding: 0 0.55rem; gap: 0.3rem; font-family: inherit; white-space: nowrap; flex-shrink: 0; }
+    .tb-btn { height: 30px; background: #fff; border: 1px solid #e2e8f0; border-radius: 7px; display: flex; align-items: center; justify-content: center; color: #475569; cursor: pointer; font-size: 0.7rem; font-weight: 600; transition: all 0.15s; padding: 0 0.55rem; gap: 0.3rem; font-family: inherit; white-space: nowrap; flex-shrink: 0; }
     .tb-btn:hover { background: #fca5a5; border-color: #fca5a5; color: #0f182b; }
     .tb-btn.dark { background: #0f172a; color: #fff; border-color: #0f172a; }
     .tb-btn.dark:hover { background: #1e293b; border-color: #1e293b; }
@@ -129,15 +128,14 @@
     .btn-send { background: #0f172a; border: none; width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #fff; transition: opacity 0.2s; flex-shrink: 0; }
     .btn-send:hover { opacity: 0.8; }
     .btn-send:disabled { opacity: 0.35; cursor: not-allowed; }
-    #mic-icon { cursor: pointer; transition: color 0.2s; }
-    #mic-icon.recording { color: #ef4444 !important; }
+    #mic-icon { cursor: pointer; transition: color 0.2s; flex-shrink: 0; }
 
     /* Toast */
     #toast-wrap { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999; display: flex; flex-direction: column; gap: 0.5rem; pointer-events: none; }
     .toast { background: #1e293b; color: #f8fafc; font-size: 0.85rem; padding: 0.7rem 1.2rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); animation: toastIn 0.25s ease; pointer-events: auto; }
     @keyframes toastIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
 
-    /* Modal overlay */
+    /* Modal */
     .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center; z-index: 100; backdrop-filter: blur(3px); }
     .modal-overlay.hidden { display: none; }
     .modal { background: #fff; border-radius: 20px; padding: 2rem; width: 440px; max-width: 95vw; box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
@@ -152,15 +150,12 @@
     .modal-btn.secondary { background: #f1f5f9; color: #475569; }
     .modal-btn.secondary:hover { background: #e2e8f0; }
 
-    /* Prompt library panel */
     .prompt-list { display: flex; flex-direction: column; gap: 0.6rem; max-height: 300px; overflow-y: auto; margin-bottom: 1rem; }
     .prompt-item { border: 1px solid #e2e8f0; border-radius: 10px; padding: 0.75rem 1rem; cursor: pointer; transition: all 0.15s; }
-    .prompt-item:hover { background: #fca5a5; border-color: #fca5a5; }
+    .prompt-item:hover { background: #fae1e1; border-color: #fca5a5; }
     .prompt-item strong { display: block; font-size: 0.85rem; margin-bottom: 0.2rem; }
     .prompt-item span { font-size: 0.78rem; color: #64748b; }
-    .prompt-item:hover span { color: #0f182b; }
 
-    /* Scrollbar */
     * { scrollbar-width: thin; scrollbar-color: #e2e8f0 transparent; }
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 3px; }
@@ -173,24 +168,24 @@
 <!-- Settings Modal -->
 <div class="modal-overlay hidden" id="settings-modal">
   <div class="modal">
-    <h3>⚙️ Settings</h3>
+    <h3>&#9881;&#65039; Settings</h3>
     <label>Language</label>
     <select id="lang-sel" onchange="setLang(this.value)">
       <option value="en">English</option>
-      <option value="es">Español</option>
-      <option value="fr">Français</option>
+      <option value="es">Espa&#241;ol</option>
+      <option value="fr">Fran&#231;ais</option>
       <option value="de">Deutsch</option>
       <option value="ar">Arabic</option>
       <option value="zh">Chinese</option>
       <option value="hi">Hindi</option>
-      <option value="pt">Português</option>
+      <option value="pt">Portugu&#234;s</option>
       <option value="ja">Japanese</option>
     </select>
     <label>AI Model</label>
     <select id="model-sel">
-      <option value="qwen/qwen3.8-27b">Qwen 3.8 27B – Best Quality</option>
-      <option value="mixtral-8x7b-32768">Mixtral 8x7B – Balanced</option>
-      <option value="gemma2-9b-it">Gemma 2 9B – Lightweight</option>
+      <option value="qwen/qwen3.8-27b">Qwen 3.8 27B &#8211; Best Quality</option>
+      <option value="mixtral-8x7b-32768">Mixtral 8x7B &#8211; Balanced</option>
+      <option value="gemma2-9b-it">Gemma 2 9B &#8211; Lightweight</option>
     </select>
     <label>Bot Name</label>
     <input type="text" id="bot-name-inp" value="NovaAI" />
@@ -204,7 +199,7 @@
 <!-- Prompt Library Modal -->
 <div class="modal-overlay hidden" id="prompt-modal">
   <div class="modal">
-    <h3>📋 Prompt Library</h3>
+    <h3>&#128203; Prompt Library</h3>
     <div class="prompt-list" id="prompt-list"></div>
     <div class="modal-btns">
       <button class="modal-btn secondary" onclick="closeModal('prompt-modal')">Close</button>
@@ -215,21 +210,21 @@
 <!-- Upgrade Modal -->
 <div class="modal-overlay hidden" id="upgrade-modal">
   <div class="modal" style="text-align:center">
-    <div style="font-size:2.5rem;margin-bottom:1rem">🚀</div>
+    <div style="font-size:2.5rem;margin-bottom:1rem">&#128640;</div>
     <h3 style="margin-bottom:0.5rem">Upgrade to Pro</h3>
     <p style="color:#64748b;font-size:0.9rem;margin-bottom:1.5rem;line-height:1.6">Unlock unlimited chats, priority AI models, voice responses, advanced analytics, and custom bot personas.</p>
     <div style="background:#f8fafc;border-radius:12px;padding:1.25rem;margin-bottom:1.5rem;text-align:left">
       <div style="font-size:0.85rem;color:#475569;display:flex;flex-direction:column;gap:0.5rem">
-        <span>✅ Unlimited conversations</span>
-        <span>✅ GPT-4 / Claude 3 access</span>
-        <span>✅ Voice input & TTS output</span>
-        <span>✅ Conversation export</span>
-        <span>✅ Priority support</span>
+        <span>&#9989; Unlimited conversations</span>
+        <span>&#9989; GPT-4 / Claude 3 access</span>
+        <span>&#9989; Voice input &amp; TTS output</span>
+        <span>&#9989; Conversation export</span>
+        <span>&#9989; Priority support</span>
       </div>
     </div>
     <div class="modal-btns">
       <button class="modal-btn secondary" onclick="closeModal('upgrade-modal')">Maybe Later</button>
-      <button class="modal-btn primary" onclick="toast('✨ Redirecting to checkout...');closeModal('upgrade-modal')">Upgrade — $9/mo</button>
+      <button class="modal-btn primary" onclick="toast('Redirecting to checkout...');closeModal('upgrade-modal')">Upgrade &#8212; $9/mo</button>
     </div>
   </div>
 </div>
@@ -237,7 +232,7 @@
 <!-- Edit Message Modal -->
 <div class="modal-overlay hidden" id="edit-modal">
   <div class="modal">
-    <h3>✏️ Edit Message</h3>
+    <h3>&#9999;&#65039; Edit Message</h3>
     <label>Message text</label>
     <input type="text" id="edit-inp" />
     <div class="modal-btns">
@@ -255,49 +250,80 @@
       CHaT BoT
     </div>
 
-    <div class="nav-btn active" data-view="chat" onclick="switchNav(this,'chat')">
-      <div class="nav-left"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg> Chat Generator</div>
+    <div class="nav-btn active" onclick="switchNav(this,'chat')">
+      <div class="nav-left">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        Chat Generator
+      </div>
     </div>
-    <div class="nav-btn" data-view="feedback" onclick="switchNav(this,'feedback')">
-      <div class="nav-left"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg> Feedback</div>
+    <div class="nav-btn" onclick="switchNav(this,'feedback')">
+      <div class="nav-left">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+        Feedback
+      </div>
       <div class="badge" id="badge-feedback">16</div>
     </div>
-    <div class="nav-btn" data-view="prompts" onclick="switchNav(this,'prompts');openModal('prompt-modal')">
-      <div class="nav-left"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg> Prompt Library</div>
+    <div class="nav-btn" onclick="switchNav(this,'prompts');openModal('prompt-modal')">
+      <div class="nav-left">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+        Prompt Library
+      </div>
       <div class="badge">18</div>
     </div>
-    <div class="nav-btn" data-view="saves" onclick="switchNav(this,'saves')">
-      <div class="nav-left"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg> My Saves</div>
+    <div class="nav-btn" onclick="switchNav(this,'saves')">
+      <div class="nav-left">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+        My Saves
+      </div>
       <div class="badge" id="badge-saves">0</div>
     </div>
-    <div class="nav-btn" data-view="favorite" onclick="switchNav(this,'favorite')">
-      <div class="nav-left"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> Favorite</div>
+    <div class="nav-btn" onclick="switchNav(this,'favorite')">
+      <div class="nav-left">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+        Favorite
+      </div>
       <div class="badge" id="badge-fav">0</div>
     </div>
-    <div class="nav-btn" data-view="history" onclick="switchNav(this,'history')">
-      <div class="nav-left"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> History</div>
+    <div class="nav-btn" onclick="switchNav(this,'history')">
+      <div class="nav-left">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        History
+      </div>
       <div class="badge" id="badge-hist">0</div>
     </div>
-    <div class="nav-btn" data-view="stats" onclick="switchNav(this,'stats')">
-      <div class="nav-left"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg> Statistics</div>
+    <div class="nav-btn" onclick="switchNav(this,'stats')">
+      <div class="nav-left">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+        Statistics
+      </div>
     </div>
     <div class="nav-btn" onclick="openModal('settings-modal')">
-      <div class="nav-left"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg> Settings</div>
+      <div class="nav-left">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        Settings
+      </div>
     </div>
 
     <div class="spacer"></div>
     <div class="nav-btn" onclick="logOut()" style="margin-bottom:1rem">
-      <div class="nav-left"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> Log Out</div>
+      <div class="nav-left">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+        Log Out
+      </div>
     </div>
 
     <div class="theme-toggle">
-      <div class="tt-btn active" id="tt-light" onclick="setTheme('light')"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></div>
-      <div class="tt-btn" id="tt-dark" onclick="setTheme('dark')"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></div>
+      <div class="tt-btn active" id="tt-light" onclick="setTheme('light')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      </div>
+      <div class="tt-btn" id="tt-dark" onclick="setTheme('dark')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </div>
     </div>
 
     <div class="user-card">
       <div class="uc-info">
-        <img src="https://i.pravatar.cc/150?u=adam" class="uc-av" />
+        <img src="https://i.pravatar.cc/150?u=adam" class="uc-av" alt="avatar" />
         <div class="uc-text">
           <div class="uc-name">Adam Williams</div>
           <div class="uc-email">info@gmail.com</div>
@@ -306,7 +332,7 @@
       <div class="uc-plan">Basic</div>
     </div>
     <button class="btn-upgrade" onclick="openModal('upgrade-modal')">
-      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"></path><path d="M22 2l-7 20-4-9-9-4 20-7z"></path></svg>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"></path><path d="M22 2l-7 20-4-9-9-4 20-7z"></path></svg>
       Upgrade To Pro
     </button>
   </aside>
@@ -316,11 +342,11 @@
     <div class="mid-header">Chat History <span class="hist-count" id="hist-count">0</span></div>
     <div class="search-box">
       <input type="text" id="search-inp" placeholder="Search Chat Group" oninput="renderHist(this.value)" />
-      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="18" height="18"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
     </div>
     <div class="hist-list" id="hist-list"></div>
     <button class="btn-add-group" onclick="newChat()">
-      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
       Add New Group
     </button>
   </div>
@@ -330,54 +356,59 @@
     <div class="main-header">
       <span id="chat-title">Design Thinking</span>
       <select class="lang-sel" id="lang-sel-top" onchange="setLang(this.value)">
-        <option value="en">🌐 English</option>
-        <option value="es">🌐 Español</option>
-        <option value="fr">🌐 Français</option>
-        <option value="de">🌐 Deutsch</option>
-        <option value="ar">🌐 Arabic</option>
-        <option value="zh">🌐 Chinese</option>
-        <option value="hi">🌐 Hindi</option>
-        <option value="pt">🌐 Português</option>
-        <option value="ja">🌐 Japanese</option>
+        <option value="en">&#127760; English</option>
+        <option value="es">&#127760; Espa&#241;ol</option>
+        <option value="fr">&#127760; Fran&#231;ais</option>
+        <option value="de">&#127760; Deutsch</option>
+        <option value="ar">&#127760; Arabic</option>
+        <option value="zh">&#127760; Chinese</option>
+        <option value="hi">&#127760; Hindi</option>
+        <option value="pt">&#127760; Portugu&#234;s</option>
+        <option value="ja">&#127760; Japanese</option>
       </select>
     </div>
 
     <div class="chat-area" id="msgs"></div>
 
     <div class="input-sec">
-      <!-- Toolbar row 1 -->
+      <!-- Row 1: text buttons -->
       <div class="tb-row">
         <button class="tb-btn dark" onclick="openModal('prompt-modal')">
-          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="10" height="10" rx="1.5" ry="1.5"></rect><line x1="3" y1="7" x2="13" y2="7"></line><line x1="7" y1="13" x2="7" y2="7"></line></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
           Prompt
         </button>
         <button class="tb-btn dark" onclick="triggerUpload()">
-          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
           Upload File
         </button>
         <input type="file" id="file-inp" style="display:none" onchange="handleFile(this)" accept=".txt,.pdf,.docx,.png,.jpg" />
       </div>
-      <!-- Toolbar row 2: exactly 4 icon buttons matching reference -->
+      <!-- Row 2: 4 icon buttons -->
       <div class="tb-row">
-        <button class="tb-btn icon-only" title="Schedule" onclick="toast('📅 Scheduling coming soon!')">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-        </button>
-        <button class="tb-btn icon-only" title="Notes" onclick="toast('📝 Notes coming soon!')">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line></svg>
-        </button>
         <button class="tb-btn icon-only" title="Save conversation" onclick="saveToMyConvs()">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
         </button>
         <button class="tb-btn icon-only" title="Export chat" onclick="exportChat()">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        </button>
+        <button class="tb-btn icon-only" title="Clear chat" onclick="clearChat()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6m5 0V4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2"></path></svg>
+        </button>
+        <button class="tb-btn icon-only" title="Speak last reply" onclick="speakLast()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
         </button>
       </div>
       <!-- Input bar -->
       <div class="inp-box">
-        <svg id="mic-icon" width="20" height="20" fill="none" stroke="#94a3b8" stroke-width="2" onclick="toggleVoice()" style="cursor:pointer;flex-shrink:0"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+        <svg id="mic-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" onclick="toggleVoice()">
+          <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+          <line x1="12" y1="19" x2="12" y2="23"></line>
+          <line x1="8" y1="23" x2="16" y2="23"></line>
+        </svg>
         <input type="text" id="inp" placeholder="Ask Me anything ...." onkeydown="onKey(event)" />
         <button class="btn-send" id="send-btn" onclick="sendMsg()">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
         </button>
       </div>
     </div>
@@ -385,13 +416,12 @@
 </div>
 
 <script>
-// ─── Constants ────────────────────────────────────────────────────────────────
 const API_ENDPOINT = '/api/chat';
 const LANGS = {
-  en:{name:'English',bcp47:'en-US'}, es:{name:'Español',bcp47:'es-ES'},
-  fr:{name:'Français',bcp47:'fr-FR'}, de:{name:'Deutsch',bcp47:'de-DE'},
+  en:{name:'English',bcp47:'en-US'}, es:{name:'Espanol',bcp47:'es-ES'},
+  fr:{name:'Francais',bcp47:'fr-FR'}, de:{name:'Deutsch',bcp47:'de-DE'},
   ar:{name:'Arabic',bcp47:'ar-SA'}, zh:{name:'Chinese',bcp47:'zh-CN'},
-  hi:{name:'Hindi',bcp47:'hi-IN'}, pt:{name:'Português',bcp47:'pt-BR'},
+  hi:{name:'Hindi',bcp47:'hi-IN'}, pt:{name:'Portugues',bcp47:'pt-BR'},
   ja:{name:'Japanese',bcp47:'ja-JP'}
 };
 const INTENTS = {
@@ -406,14 +436,14 @@ const INTENTS = {
   escalation:{kw:['human','agent','manager','escalate'],color:'#f97316'}
 };
 const FAQ = [
-  {q:'How do I track my order?', a:'You can track your order on the **Order Tracking** page. You will also receive automatic email/SMS updates.', intent:'shipping'},
-  {q:'What is your return policy?', a:'We offer a **30-day hassle-free return** policy. Refunds are processed within 5-7 business days.', intent:'refund'},
-  {q:'How do I request a refund?', a:'Go to **My Orders**, select the order, then click **Request Return**.', intent:'refund'},
-  {q:'What payment methods do you accept?', a:'We accept **Visa, Mastercard, Amex, PayPal, Apple Pay, Google Pay**.', intent:'billing'},
-  {q:'How do I reset my password?', a:'Click **Forgot Password** on the login page. Check your spam folder if you do not see the reset link.', intent:'account'},
-  {q:'How long does shipping take?', a:'Standard: 5-7 days\nExpress: 2-3 days\nOvernight: next day', intent:'shipping'},
-  {q:'How do I contact a human agent?', a:'Our human support team is available:\n- **Live Chat**: 9am-6pm EST\n- **Phone**: 1-800-NOVA-AI\n- **Email**: support@novaai.com', intent:'escalation'},
-  {q:'My app is not working', a:'Please try:\n1. Clear cache\n2. Disable extensions\n3. Try incognito mode\n\nContact tech support if issue persists.', intent:'technical'}
+  {q:'How do I track my order?', a:'You can track your order on the **Order Tracking** page. You will also receive automatic email/SMS updates.'},
+  {q:'What is your return policy?', a:'We offer a **30-day hassle-free return** policy. Refunds are processed within 5-7 business days.'},
+  {q:'How do I request a refund?', a:'Go to **My Orders**, select the order, then click **Request Return**.'},
+  {q:'What payment methods do you accept?', a:'We accept **Visa, Mastercard, Amex, PayPal, Apple Pay, Google Pay**.'},
+  {q:'How do I reset my password?', a:'Click **Forgot Password** on the login page. Check your spam folder if you do not see the reset link.'},
+  {q:'How long does shipping take?', a:'Standard: 5-7 days\nExpress: 2-3 days\nOvernight: next day'},
+  {q:'How do I contact a human agent?', a:'Our human support team is available:\n- **Live Chat**: 9am-6pm EST\n- **Phone**: 1-800-NOVA-AI\n- **Email**: support@novaai.com'},
+  {q:'My app is not working', a:'Please try:\n1. Clear cache\n2. Disable extensions\n3. Try incognito mode\n\nContact tech support if issue persists.'}
 ];
 const PROMPTS = [
   {title:'Track my order', text:'I would like to track my order. Can you help me?'},
@@ -425,7 +455,6 @@ const PROMPTS = [
   {title:'Technical issue', text:'My app is not working properly. Can you help me fix it?'},
   {title:'Payment methods', text:'What payment methods do you accept?'},
 ];
-// Recommended starter questions shown in empty state
 const REC_QUESTIONS = [
   'How do I track my order?',
   'What is your return policy?',
@@ -435,7 +464,6 @@ const REC_QUESTIONS = [
   'What payment methods do you accept?',
 ];
 
-// ─── App State ────────────────────────────────────────────────────────────────
 let convs = JSON.parse(localStorage.getItem('nova_convs') || '[]');
 let currentId = null, apiHistory = [], displayMsgs = [], lang = 'en';
 let model = 'qwen/qwen3.8-27b', botName = 'NovaAI', ttsSpeed = 1.0;
@@ -445,9 +473,7 @@ let savedConvIds = JSON.parse(localStorage.getItem('nova_saves') || '[]');
 let favMsgIds = JSON.parse(localStorage.getItem('nova_favs') || '[]');
 let lastAssistantMsgId = null;
 let editingMsgId = null;
-let darkMode = false;
 
-// ─── Utilities ────────────────────────────────────────────────────────────────
 function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 function timeAgo(ts) {
   const d = Date.now() - ts;
@@ -468,17 +494,12 @@ function md(t) {
     .replace(/\n/g,'<br>');
 }
 
-// ─── Modal helpers ────────────────────────────────────────────────────────────
 function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
 function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
-// Close modal on overlay click
 document.addEventListener('click', e => {
-  document.querySelectorAll('.modal-overlay:not(.hidden)').forEach(o => {
-    if (e.target === o) o.classList.add('hidden');
-  });
+  document.querySelectorAll('.modal-overlay:not(.hidden)').forEach(o => { if (e.target === o) o.classList.add('hidden'); });
 });
 
-// ─── Settings ─────────────────────────────────────────────────────────────────
 function saveSettings() {
   lang = document.getElementById('lang-sel').value;
   document.getElementById('lang-sel-top').value = lang;
@@ -486,112 +507,75 @@ function saveSettings() {
   const n = document.getElementById('bot-name-inp').value.trim();
   if (n) botName = n;
   closeModal('settings-modal');
-  toast('✅ Settings saved');
+  toast('Settings saved');
 }
 function setLang(code) {
   lang = code;
   document.getElementById('lang-sel').value = code;
   document.getElementById('lang-sel-top').value = code;
-  toast('🌐 Language: ' + LANGS[code].name);
+  toast('Language: ' + LANGS[code].name);
 }
 
-// ─── Theme ───────────────────────────────────────────────────────────────────
 function setTheme(mode) {
-  darkMode = mode === 'dark';
-  document.getElementById('tt-light').classList.toggle('active', !darkMode);
-  document.getElementById('tt-dark').classList.toggle('active', darkMode);
-  if (darkMode) {
-    document.body.style.background = '#0f182b';
-    document.querySelectorAll('.mid-panel,.main-panel').forEach(el => el.style.background = '#1e293b');
-    document.querySelectorAll('.mid-panel,.main-panel').forEach(el => el.style.color = '#f8fafc');
-  } else {
-    document.body.style.background = '#0f182b';
-    document.querySelectorAll('.mid-panel,.main-panel').forEach(el => { el.style.background = '#fff'; el.style.color = ''; });
-  }
-  toast(darkMode ? '🌙 Dark mode on' : '☀️ Light mode on');
+  const dark = mode === 'dark';
+  document.getElementById('tt-light').classList.toggle('active', !dark);
+  document.getElementById('tt-dark').classList.toggle('active', dark);
+  document.querySelectorAll('.mid-panel,.main-panel').forEach(el => {
+    el.style.background = dark ? '#1e293b' : '#fff';
+    el.style.color = dark ? '#f8fafc' : '';
+  });
+  toast(dark ? 'Dark mode on' : 'Light mode on');
 }
 
-// ─── Nav ─────────────────────────────────────────────────────────────────────
 function switchNav(el, view) {
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   el.classList.add('active');
-  if (view === 'history') { toast('📋 Showing all chat history'); return; }
+  if (view === 'history') { toast('Showing all chat history'); return; }
   if (view === 'saves') { showSavesView(); return; }
-  if (view === 'favorite') { showFavoritesView(); return; }
+  if (view === 'favorite') { toast('Favorited messages: ' + favMsgIds.length); return; }
   if (view === 'stats') { showStatsView(); return; }
   if (view === 'feedback') { openFeedbackView(); return; }
-  // 'chat' and 'prompts' handled inline
 }
 
 function showSavesView() {
   const saved = convs.filter(c => savedConvIds.includes(c.id));
-  if (!saved.length) { toast('⭐ No saved conversations yet. Use the bookmark button in toolbar!'); return; }
   clearMsgArea();
   document.getElementById('chat-title').textContent = 'My Saves';
   const msg = document.createElement('div');
-  msg.className = 'msg-row assistant';
-  msg.innerHTML = `<div class="msg-box"><strong>Saved Conversations (${saved.length})</strong><br><br>${saved.map(c => `• ${esc(c.title)} — ${timeAgo(c.ts)}`).join('<br>')}</div>`;
+  msg.className = 'msg-row assistant'; msg.style.maxWidth = '100%';
+  msg.innerHTML = `<div class="msg-box"><strong>Saved Conversations (${saved.length})</strong><br><br>${saved.length ? saved.map(c => '&bull; ' + esc(c.title) + ' &mdash; ' + timeAgo(c.ts)).join('<br>') : 'No saved conversations yet. Use the bookmark button in the toolbar!'}</div>`;
   msgsEl().appendChild(msg);
-  document.getElementById('badge-saves').textContent = savedConvIds.length;
-}
-function showFavoritesView() {
-  const count = favMsgIds.length;
-  toast(count > 0 ? `❤️ ${count} favorited message(s)` : '❤️ No favorites yet. Click the heart icon on a message!');
-  document.getElementById('badge-fav').textContent = count;
 }
 function showStatsView() {
   const total = convs.reduce((a,c) => a + (c.msgTotal||0), 0);
-  const totalConvs = convs.length;
-  clearMsgArea();
-  document.getElementById('chat-title').textContent = 'Statistics';
+  clearMsgArea(); document.getElementById('chat-title').textContent = 'Statistics';
   const msg = document.createElement('div');
-  msg.className = 'msg-row assistant';
-  msg.style.maxWidth = '100%';
-  msg.innerHTML = `<div class="msg-box"><strong>📊 Your Stats</strong><br><br>
-    • Total conversations: <strong>${totalConvs}</strong><br>
-    • Total messages sent: <strong>${total}</strong><br>
-    • Saved conversations: <strong>${savedConvIds.length}</strong><br>
-    • Favorited messages: <strong>${favMsgIds.length}</strong><br><br>
-    <em>Keep chatting to build up more history!</em></div>`;
+  msg.className = 'msg-row assistant'; msg.style.maxWidth = '100%';
+  msg.innerHTML = `<div class="msg-box"><strong>Your Stats</strong><br><br>&bull; Total conversations: <strong>${convs.length}</strong><br>&bull; Total messages: <strong>${total}</strong><br>&bull; Saved: <strong>${savedConvIds.length}</strong><br>&bull; Favorited: <strong>${favMsgIds.length}</strong></div>`;
   msgsEl().appendChild(msg);
 }
 function openFeedbackView() {
-  clearMsgArea();
-  document.getElementById('chat-title').textContent = 'Feedback';
+  clearMsgArea(); document.getElementById('chat-title').textContent = 'Feedback';
   const msg = document.createElement('div');
-  msg.className = 'msg-row assistant';
-  msg.style.maxWidth = '100%';
-  msg.innerHTML = `<div class="msg-box"><strong>📝 Send Feedback</strong><br><br>
-    We'd love to hear what you think!<br><br>
-    <div style="display:flex;flex-direction:column;gap:0.5rem">
-      <textarea id="fb-text" placeholder="Type your feedback here..." style="width:100%;border:1px solid #e2e8f0;border-radius:10px;padding:0.75rem;font-family:inherit;font-size:0.9rem;outline:none;resize:vertical;min-height:80px;background:#f8fafc;"></textarea>
-      <button onclick="submitFeedback()" style="background:#0f172a;color:#fff;border:none;padding:0.75rem;border-radius:10px;cursor:pointer;font-weight:600;font-family:inherit;">Submit Feedback</button>
-    </div></div>`;
+  msg.className = 'msg-row assistant'; msg.style.maxWidth = '100%';
+  msg.innerHTML = `<div class="msg-box"><strong>Send Feedback</strong><br><br><textarea id="fb-text" placeholder="Type your feedback here..." style="width:100%;border:1px solid #e2e8f0;border-radius:10px;padding:0.75rem;font-family:inherit;font-size:0.9rem;outline:none;resize:vertical;min-height:80px;background:#f8fafc;margin-bottom:0.75rem;display:block"></textarea><button onclick="submitFeedback()" style="background:#0f172a;color:#fff;border:none;padding:0.65rem 1.25rem;border-radius:10px;cursor:pointer;font-weight:600;font-family:inherit;">Submit Feedback</button></div>`;
   msgsEl().appendChild(msg);
 }
 function submitFeedback() {
   const val = document.getElementById('fb-text')?.value?.trim();
   if (!val) { toast('Please type some feedback first!'); return; }
-  toast('✅ Thank you for your feedback!');
+  toast('Thank you for your feedback!');
   document.getElementById('fb-text').value = '';
-  const badge = document.getElementById('badge-feedback');
-  badge.textContent = parseInt(badge.textContent) - 1;
 }
-
-// ─── Log out ─────────────────────────────────────────────────────────────────
 function logOut() {
   if (!confirm('Log out? Your history will remain saved locally.')) return;
-  toast('👋 Logged out successfully!');
+  toast('Logged out successfully!');
 }
 
-// ─── Prompt Library ───────────────────────────────────────────────────────────
 function buildPromptList() {
-  const list = document.getElementById('prompt-list');
-  list.innerHTML = PROMPTS.map((p,i) => `
-    <div class="prompt-item" onclick="usePrompt(${i})">
-      <strong>${esc(p.title)}</strong>
-      <span>${esc(p.text)}</span>
-    </div>`).join('');
+  document.getElementById('prompt-list').innerHTML = PROMPTS.map((p,i) =>
+    `<div class="prompt-item" onclick="usePrompt(${i})"><strong>${esc(p.title)}</strong><span>${esc(p.text)}</span></div>`
+  ).join('');
 }
 function usePrompt(i) {
   document.getElementById('inp').value = PROMPTS[i].text;
@@ -599,62 +583,48 @@ function usePrompt(i) {
   document.getElementById('inp').focus();
 }
 
-// ─── File Upload ──────────────────────────────────────────────────────────────
 function triggerUpload() { document.getElementById('file-inp').click(); }
 function handleFile(input) {
-  const file = input.files[0];
-  if (!file) return;
+  const file = input.files[0]; if (!file) return;
   const reader = new FileReader();
   reader.onload = e => {
     const content = file.type.startsWith('image/') ? '[Image uploaded]' : e.target.result.slice(0, 300) + (e.target.result.length > 300 ? '...' : '');
-    document.getElementById('inp').value = `Here is content from "${file.name}":\n\n${content}`;
-    toast(`📎 File "${file.name}" attached`);
+    document.getElementById('inp').value = `Content from "${file.name}":\n\n${content}`;
+    toast('File "' + file.name + '" attached');
   };
   if (file.type.startsWith('image/')) reader.readAsDataURL(file);
   else reader.readAsText(file);
   input.value = '';
 }
 
-// ─── Export chat ──────────────────────────────────────────────────────────────
 function exportChat() {
   if (!displayMsgs.length) { toast('Nothing to export yet!'); return; }
-  const lines = displayMsgs.map(m => `[${m.role.toUpperCase()}] ${m.text}`).join('\n\n');
-  const blob = new Blob([lines], {type: 'text/plain'});
-  const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
-  a.download = `chat-${Date.now()}.txt`; a.click();
-  toast('📥 Chat exported!');
+  const lines = displayMsgs.map(m => '[' + m.role.toUpperCase() + '] ' + m.text).join('\n\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([lines], {type:'text/plain'}));
+  a.download = 'chat-' + Date.now() + '.txt'; a.click();
+  toast('Chat exported!');
 }
-
-// ─── Save to My Convs ─────────────────────────────────────────────────────────
 function saveToMyConvs() {
   if (!currentId) { toast('Start a conversation first!'); return; }
   if (savedConvIds.includes(currentId)) {
-    savedConvIds = savedConvIds.filter(id => id !== currentId);
-    toast('🔖 Removed from saves');
+    savedConvIds = savedConvIds.filter(id => id !== currentId); toast('Removed from saves');
   } else {
-    savedConvIds.push(currentId);
-    toast('🔖 Conversation saved!');
+    savedConvIds.push(currentId); toast('Conversation saved!');
   }
   localStorage.setItem('nova_saves', JSON.stringify(savedConvIds));
   document.getElementById('badge-saves').textContent = savedConvIds.length;
 }
-
-// ─── Clear chat ───────────────────────────────────────────────────────────────
 function clearChat() {
-  if (!displayMsgs.length) return;
-  if (!confirm('Clear this conversation?')) return;
+  if (!displayMsgs.length || !confirm('Clear this conversation?')) return;
   apiHistory = []; displayMsgs = []; msgTexts.clear(); lastAssistantMsgId = null;
-  clearMsgArea(); renderEmptyState();
-  toast('🗑️ Chat cleared');
+  clearMsgArea(); renderEmptyState(); toast('Chat cleared');
 }
-
-// ─── TTS: speak last bot message ──────────────────────────────────────────────
 function speakLast() {
   if (!lastAssistantMsgId) { toast('No bot message to speak yet!'); return; }
   speakMsg(lastAssistantMsgId);
 }
 
-// ─── Intent / FAQ ─────────────────────────────────────────────────────────────
 function classifyIntent(text) {
   const lower = text.toLowerCase(); let best = 'general', bestScore = 0;
   for (const [name,cfg] of Object.entries(INTENTS)) {
@@ -676,27 +646,16 @@ function searchFAQ(text) {
   return bestScore >= 0.35 ? {entry: best, score: bestScore} : null;
 }
 
-// ─── System prompt ────────────────────────────────────────────────────────────
 function sysPrompt() {
-  return `You are ${botName}, a customer support AI.
-RESPOND EXCLUSIVELY IN ${LANGS[lang].name}.
-Be concise, professional, and clear.
-Core knowledge: order tracking, 30-day returns, billing, accounts, basic tech support.
-Never fabricate data like order IDs or ETAs.
-
-CRITICAL INSTRUCTION: You must ALWAYS respond with a valid JSON object in this exact format:
-{
-  "reply": "Your actual response message here (use markdown)",
-  "followups": ["Suggested question 1", "Suggested question 2", "Suggested question 3"]
-}
-Provide exactly 2-3 highly relevant follow-up questions. Do NOT output any text outside the JSON object.`;
+  return `You are ${botName}, a customer support AI. Respond in ${LANGS[lang].name}. Be concise and professional.
+ALWAYS respond with valid JSON only:
+{"reply":"your markdown response","followups":["q1","q2","q3"]}
+Do NOT output any text outside the JSON.`;
 }
 
-// ─── Conversation management ──────────────────────────────────────────────────
 function newChat() {
   currentId = Date.now().toString();
-  apiHistory = []; displayMsgs = []; msgTexts.clear();
-  lastAssistantMsgId = null;
+  apiHistory = []; displayMsgs = []; msgTexts.clear(); lastAssistantMsgId = null;
   clearMsgArea(); renderEmptyState(); renderHist();
   document.getElementById('chat-title').textContent = 'New Chat';
   document.getElementById('inp').focus();
@@ -719,23 +678,19 @@ function saveConv() {
   renderHist();
 }
 
-// ─── DOM helpers ──────────────────────────────────────────────────────────────
 const msgsEl = () => document.getElementById('msgs');
 function clearMsgArea() { msgsEl().querySelectorAll('.msg-row,.typing-row,.empty-state').forEach(el => el.remove()); }
 function scrollBot() { const m = msgsEl(); m.scrollTop = m.scrollHeight; }
 
 function renderEmptyState() {
   const div = document.createElement('div'); div.className = 'empty-state';
-  div.innerHTML = `
-    <div class="empty-icon">💬</div>
+  div.innerHTML = `<div class="empty-icon">&#128172;</div>
     <div class="empty-title">How can I help you today?</div>
     <div class="empty-sub">Ask me anything about orders, billing, returns, or technical issues.</div>
-    <div class="rec-chips">${REC_QUESTIONS.map(q => `<div class="rec-chip" onclick="quickSend('${esc(q)}')">${esc(q)}</div>`).join('')}</div>
-  `;
+    <div class="rec-chips">${REC_QUESTIONS.map(q => `<div class="rec-chip" onclick="quickSend('${esc(q)}')">${esc(q)}</div>`).join('')}</div>`;
   msgsEl().appendChild(div);
 }
 
-// ─── Render chat history ──────────────────────────────────────────────────────
 function renderHist(filter='') {
   const list = document.getElementById('hist-list');
   list.innerHTML = '';
@@ -746,55 +701,64 @@ function renderHist(filter='') {
     const div = document.createElement('div');
     div.className = 'h-item' + (c.id === currentId ? ' active-conv' : '');
     div.onclick = () => loadConv(c.id);
-    div.innerHTML = `
-      <div class="h-top">
-        <div class="h-title">${esc(c.title)}</div>
-        <div class="h-time">${timeAgo(c.ts)}</div>
-      </div>
-      <div class="h-desc">${esc(c.title)} — ${c.msgTotal||0} message(s)</div>`;
+    div.innerHTML = `<div class="h-top"><div class="h-title">${esc(c.title)}</div><div class="h-time">${timeAgo(c.ts)}</div></div><div class="h-desc">${c.msgTotal||0} message(s)</div>`;
     list.appendChild(div);
   });
 }
 
-// ─── Message bubbles ──────────────────────────────────────────────────────────
 function appendBubble(role, text, intent, conf, animate=true, followups=[]) {
   const id = 'm'+(++msgSeq); msgTexts.set(id, text);
   if (role === 'assistant') lastAssistantMsgId = id;
-
-  // Remove empty state
   msgsEl().querySelectorAll('.empty-state').forEach(el => el.remove());
 
   const row = document.createElement('div');
   row.className = 'msg-row ' + role;
   if (!animate) row.style.animation = 'none';
 
-  const av = role === 'user' ? `<img src="https://i.pravatar.cc/150?u=adam" class="m-av" />` : '';
+  const av = role === 'user' ? `<img src="https://i.pravatar.cc/150?u=adam" class="m-av" alt="avatar" />` : '';
   const time = new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
-
   const isFav = favMsgIds.includes(id);
-  const likeBtn = role === 'assistant' ? `<button class="m-act-btn ${isFav?'liked':''}" id="fav-${id}" onclick="toggleFav('${id}')" title="Favourite">
-    <svg width="13" height="13" fill="${isFav?'#ef4444':'none'}" stroke="${isFav?'#ef4444':'currentColor'}" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-  </button>` : '';
 
   let acts = '';
   if (role === 'assistant') {
     acts = `<div class="msg-acts">
-      <button class="m-act-btn" onclick="copyMsg('${id}')"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy Text</button>
-      <button class="m-act-btn" onclick="regenerateLast()"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><polyline points="23 20 23 14 17 14"></polyline><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path></svg> Regenerate</button>
-      <button class="m-act-btn" onclick="copyLink('${id}')"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg> Copy Link</button>
-      <button class="m-act-btn" onclick="shareMsg('${id}')"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg> Share</button>
-      <button class="m-act-btn" onclick="speakMsg('${id}')"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg> TTS</button>
-      ${likeBtn}
+      <button class="m-act-btn" onclick="copyMsg('${id}')">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+        Copy Text
+      </button>
+      <button class="m-act-btn" onclick="regenerateLast()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"></polyline><polyline points="23 20 23 14 17 14"></polyline><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path></svg>
+        Regenerated Response
+      </button>
+      <button class="m-act-btn" onclick="copyLink('${id}')">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+        Copy Link
+      </button>
+      <button class="m-act-btn" onclick="shareMsg('${id}')">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        Share
+      </button>
+      <button class="m-act-btn ${isFav?'liked':''}" id="fav-${id}" onclick="toggleFav('${id}')">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="${isFav?'#ef4444':'none'}" stroke="${isFav?'#ef4444':'currentColor'}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+      </button>
     </div>`;
   } else {
     acts = `<div class="msg-acts">
-      <button class="m-act-btn" onclick="saveMsg('${id}')"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg> Save Question</button>
-      <button class="m-act-btn" onclick="copyMsg('${id}')"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button>
-      <button class="m-act-btn" onclick="openEditModal('${id}')"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg> Edit & Resend</button>
+      <button class="m-act-btn" onclick="saveMsg('${id}')">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+        Save Question
+      </button>
+      <button class="m-act-btn" onclick="copyMsg('${id}')">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+        Copy Question
+      </button>
+      <button class="m-act-btn" onclick="openEditModal('${id}')">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+        Edit
+      </button>
     </div>`;
   }
 
-  // Follow-up chips (only for bot messages)
   let fuHtml = '';
   if (role === 'assistant' && followups && followups.length > 0) {
     fuHtml = `<div class="followup-chips">${followups.map(f => `<div class="fu-chip" onclick="quickSend('${esc(f)}')">${esc(f)}</div>`).join('')}</div>`;
@@ -806,7 +770,8 @@ function appendBubble(role, text, intent, conf, animate=true, followups=[]) {
         <div class="mt-left">
           ${av}
           <div class="m-icons" onclick="speakMsg('${id}')" title="Speak message">
-            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
           </div>
         </div>
         <div class="m-time">${time}</div>
@@ -814,8 +779,7 @@ function appendBubble(role, text, intent, conf, animate=true, followups=[]) {
       <div>${md(text)}</div>
     </div>
     ${acts}
-    ${fuHtml}
-  `;
+    ${fuHtml}`;
 
   msgsEl().appendChild(row);
   scrollBot();
@@ -829,53 +793,44 @@ function showTyping() {
 }
 function hideTyping() { document.getElementById('typing')?.remove(); }
 
-// ─── Message actions ──────────────────────────────────────────────────────────
 function copyMsg(id) {
-  const text = (msgTexts.get(id)||'').replace(/[*_`]/g,'');
-  navigator.clipboard.writeText(text).then(() => toast('📋 Copied to clipboard!'));
+  navigator.clipboard.writeText((msgTexts.get(id)||'').replace(/[*_`]/g,'')).then(() => toast('Copied to clipboard!'));
 }
 function copyLink(id) {
-  const url = `${location.origin}${location.pathname}?msg=${id}`;
-  navigator.clipboard.writeText(url).then(() => toast('🔗 Link copied!'));
+  navigator.clipboard.writeText(location.href + '?msg=' + id).then(() => toast('Link copied!'));
 }
 function shareMsg(id) {
   const text = (msgTexts.get(id)||'').replace(/[*_`]/g,'');
-  if (navigator.share) {
-    navigator.share({title: 'CHaT BoT response', text}).catch(()=>{});
-  } else {
-    copyLink(id);
-  }
+  if (navigator.share) navigator.share({title:'CHaT BoT', text}).catch(()=>{});
+  else copyLink(id);
 }
 function speakMsg(id) {
-  if (!window.speechSynthesis) { toast('TTS not supported in this browser.'); return; }
+  if (!window.speechSynthesis) { toast('TTS not supported.'); return; }
   if (window.speechSynthesis.speaking) window.speechSynthesis.cancel();
-  const rawText = (msgTexts.get(id)||'').replace(/[*_`]/g,'').replace(/<[^>]+>/g,'');
-  const utter = new SpeechSynthesisUtterance(rawText);
+  const utter = new SpeechSynthesisUtterance((msgTexts.get(id)||'').replace(/[*_`]/g,'').replace(/<[^>]+>/g,''));
   utter.lang = LANGS[lang].bcp47; utter.rate = ttsSpeed;
   window.speechSynthesis.speak(utter);
-  toast('🔊 Speaking...');
+  toast('Speaking...');
 }
 function toggleFav(id) {
   const idx = favMsgIds.indexOf(id);
-  if (idx >= 0) { favMsgIds.splice(idx,1); toast('💔 Removed from favorites'); }
-  else { favMsgIds.push(id); toast('❤️ Added to favorites!'); }
+  if (idx >= 0) { favMsgIds.splice(idx,1); toast('Removed from favorites'); }
+  else { favMsgIds.push(id); toast('Added to favorites!'); }
   localStorage.setItem('nova_favs', JSON.stringify(favMsgIds));
   document.getElementById('badge-fav').textContent = favMsgIds.length;
-  // Update button visual
   const btn = document.getElementById('fav-'+id);
   if (btn) {
-    const isFav = favMsgIds.includes(id);
-    btn.classList.toggle('liked', isFav);
-    btn.querySelector('svg path').setAttribute('fill', isFav ? '#ef4444' : 'none');
-    btn.querySelector('svg path').setAttribute('stroke', isFav ? '#ef4444' : 'currentColor');
+    const on = favMsgIds.includes(id);
+    btn.classList.toggle('liked', on);
+    const path = btn.querySelector('svg path');
+    if (path) { path.setAttribute('fill', on ? '#ef4444' : 'none'); path.setAttribute('stroke', on ? '#ef4444' : 'currentColor'); }
   }
 }
 function saveMsg(id) {
-  const text = msgTexts.get(id)||'';
   const saved = JSON.parse(localStorage.getItem('nova_saved_msgs')||'[]');
-  saved.push({id, text, ts: Date.now()});
+  saved.push({id, text: msgTexts.get(id)||'', ts: Date.now()});
   localStorage.setItem('nova_saved_msgs', JSON.stringify(saved));
-  toast('🔖 Question saved!');
+  toast('Question saved!');
 }
 function openEditModal(id) {
   editingMsgId = id;
@@ -887,22 +842,17 @@ function submitEdit() {
   const text = document.getElementById('edit-inp').value.trim();
   if (!text) return;
   closeModal('edit-modal');
-  // Resend as new user message
   sendMsg(text);
 }
-
-// ─── Regenerate ───────────────────────────────────────────────────────────────
 function regenerateLast() {
   const lastUser = [...displayMsgs].reverse().find(m => m.role === 'user');
   if (!lastUser) { toast('Nothing to regenerate!'); return; }
-  // Remove last bot message from display
+  displayMsgs.pop(); apiHistory.pop();
   const lastRow = msgsEl().querySelector('.msg-row.assistant:last-of-type');
   if (lastRow) { lastRow.nextElementSibling?.classList?.contains('followup-chips') && lastRow.nextElementSibling.remove(); lastRow.remove(); }
-  displayMsgs.pop(); apiHistory.pop();
-  sendMsg(lastUser.text, true); // regenerate flag
+  sendMsg(lastUser.text, true);
 }
 
-// ─── Send message ─────────────────────────────────────────────────────────────
 async function sendMsg(override, isRegen=false) {
   const inp = document.getElementById('inp');
   const text = (override !== undefined ? override : inp.value).trim();
@@ -911,7 +861,6 @@ async function sendMsg(override, isRegen=false) {
   inp.value = ''; setBusy(true);
 
   const {intent, confidence} = classifyIntent(text);
-
   if (!isRegen) {
     appendBubble('user', text, null, null);
     displayMsgs.push({role:'user', text, intent, conf:confidence});
@@ -931,7 +880,7 @@ async function sendMsg(override, isRegen=false) {
     } else {
       const messages = [{role:'system', content:sysPrompt()}, ...apiHistory.slice(-14)];
       const res = await fetch(API_ENDPOINT, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({messages, model})});
-      if (!res.ok) throw new Error(`API Error ${res.status}`);
+      if (!res.ok) throw new Error('API Error ' + res.status);
       const data = await res.json();
       if (data.error) throw new Error(data.error.message || 'Unknown API error');
       const rawText = data.choices?.[0]?.message?.content || '{}';
@@ -949,8 +898,8 @@ async function sendMsg(override, isRegen=false) {
     saveConv();
   } catch(err) {
     hideTyping();
-    appendBubble('assistant', '⚠️ Connection error: ' + err.message, 'technical', 0.25);
-    toast('❌ ' + err.message);
+    appendBubble('assistant', 'Connection error: ' + err.message, 'technical', 0.25);
+    toast('Error: ' + err.message);
   }
   setBusy(false);
 }
@@ -959,24 +908,22 @@ function quickSend(text) { document.getElementById('inp').value = text; sendMsg(
 function setBusy(v) { document.getElementById('send-btn').disabled = v; }
 function onKey(e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMsg(); } }
 
-// ─── Voice input ──────────────────────────────────────────────────────────────
 function toggleVoice() {
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if (!SR) { toast('🎤 Voice input not supported in this browser.'); return; }
+  if (!SR) { toast('Voice input not supported in this browser.'); return; }
   if (isRecording) { recog?.stop(); return; }
   recog = new SR(); recog.lang = LANGS[lang].bcp47; recog.interimResults = true;
   const mic = document.getElementById('mic-icon');
-  recog.onstart = () => { isRecording = true; mic.classList.add('recording'); mic.setAttribute('stroke','#ef4444'); toast('🎤 Listening...'); };
+  recog.onstart = () => { isRecording = true; mic.setAttribute('stroke','#ef4444'); toast('Listening...'); };
   recog.onresult = e => { document.getElementById('inp').value = Array.from(e.results).map(r => r[0].transcript).join(''); };
   recog.onend = () => {
-    isRecording = false; mic.classList.remove('recording'); mic.setAttribute('stroke','#94a3b8');
+    isRecording = false; mic.setAttribute('stroke','#94a3b8');
     if (document.getElementById('inp').value.trim()) sendMsg();
   };
-  recog.onerror = () => { isRecording = false; mic.classList.remove('recording'); toast('🎤 Voice error, try again'); };
+  recog.onerror = () => { isRecording = false; mic.setAttribute('stroke','#94a3b8'); toast('Voice error, try again'); };
   recog.start();
 }
 
-// ─── Init ─────────────────────────────────────────────────────────────────────
 function init() {
   buildPromptList();
   renderHist();
